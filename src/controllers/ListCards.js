@@ -4,7 +4,7 @@ const baseUrl = process.env.TRELLO_BASEURL;
 const trelloKey = process.env.TRELLO_KEY;
 const trelloToken = process.env.TRELLO_TOKEN;
 
-class ListWonDealsController {
+class ListCards {
   async index(req, res) {
     try {
       const response = await axios.get(`${baseUrl}/boards/5fd28dc2e4fef58164d291e6/cards?key=${trelloKey}&token=${trelloToken}`);
@@ -17,4 +17,4 @@ class ListWonDealsController {
   };
 };
 
-module.exports = new ListWonDealsController();
+module.exports = new ListCards();
