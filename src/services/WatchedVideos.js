@@ -5,15 +5,29 @@ module.exports = {
 
         const videosIds = videos.map(video => video.id.videoId);
 
-        const isWatched = await CardRepository.getCards(videosIds);
+        const savedCards = await CardRepository.getCards(videosIds);
 
+        // for (let i = 0; i < savedCards.length; i++) { // FOR watchedVideos OF savedCards
+        
+        //     if (!savedCards[i]) { // FILTER COM PROMISE.ALL
+        //         const saveWatchedVideo = await videos.find(video => video.id.videoId === videosIds[i]);
 
-        for (let i = 0; i < isWatched.length; i++) {
-            if (!isWatched[i]) {
+        //         const savedVideos = await saveVideos.create(saveWatchedVideo);
+        //     };
+        // };
+
+        // for(const [i, savedCards] of savedCards.entries()) {
+            
+        // };
+
+        // [[0, null], [1, model]]
+
+        savedCards.filter((videoId, i) => videoId).map(async (savedCard) => {
+            if(!savedCard) {
                 const saveWatchedVideo = await videos.find(video => video.id.videoId === videosIds[i]);
 
                 const savedVideos = await saveVideos.create(saveWatchedVideo);
             };
-        };
+        });
     },
 };

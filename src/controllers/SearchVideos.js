@@ -8,7 +8,7 @@ const youtubeKey = process.env.YOUTUBE_KEY;
 class SearchVideos {
   async index(req, res) {
     try {
-      const response = await axios.get(`${baseUrl}/search?key=${youtubeKey}&part=snippet&type=video&channelId=UCyHOBY6IDZF9zOKJPou2Rgg&order=date`);
+      const response = await axios.get(`${baseUrl}/search?key=${youtubeKey}&part=snippet&type=video&channelId=UCyHOBY6IDZF9zOKJPou2Rgg&order=date`); // HELPER
 
       const videos = response.data.items;
 
